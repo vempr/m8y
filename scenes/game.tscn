@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ck7sr62mceqpt"]
+[gd_scene load_steps=33 format=3 uid="uid://ck7sr62mceqpt"]
 
 [ext_resource type="Script" uid="uid://c2tysoh0727ud" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dmi0snx860ixc" path="res://scenes/framework.tscn" id="2_yqjtg"]
@@ -94,6 +94,38 @@ tracks/4/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_p57ef"]
+resource_name = "move"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1000, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gee14"]
+resource_name = "move_backwards"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1000, 0, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_lnu2h"]
 resource_name = "open"
 length = 1.1
@@ -144,38 +176,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, -2.443461)]
-}
-
-[sub_resource type="Animation" id="Animation_p57ef"]
-resource_name = "move"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1000, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_gee14"]
-resource_name = "move_backwards"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1000, 0, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_0tnpc"]
@@ -239,22 +239,6 @@ _data = {
 &"open_backwards": SubResource("Animation_0tnpc")
 }
 
-[sub_resource type="Animation" id="Animation_lbhrr"]
-resource_name = "hover"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Framework:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 18.66, 0), Vector3(0, 160, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_iywne"]
 length = 0.001
 tracks/0/type = "value"
@@ -282,22 +266,6 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_u5sy4"]
-resource_name = "hover_backwards"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Framework:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 160, 0), Vector3(0, 18.66, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_vtaks"]
 resource_name = "flip"
 length = 0.4
@@ -314,6 +282,38 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 3.1415927)]
 }
 
+[sub_resource type="Animation" id="Animation_lbhrr"]
+resource_name = "hover"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Framework:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 18.66, 0), Vector3(0, 160, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u5sy4"]
+resource_name = "hover_backwards"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Framework:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 160, 0), Vector3(0, 18.66, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p57ef"]
 _data = {
 &"RESET": SubResource("Animation_iywne"),
@@ -322,28 +322,224 @@ _data = {
 &"hover_backwards": SubResource("Animation_u5sy4")
 }
 
+[sub_resource type="Animation" id="Animation_dinhu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopRight:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(128.31747, 23.17505, -64.446304)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BottomRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(128.31747, 23.17505, -14.380867)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TopLeft:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-128.33115, 23.17505, -64.446304)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BottomLeft:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-128.331, 23.175, -14.381)]
+}
+
+[sub_resource type="Animation" id="Animation_ssvqc"]
+resource_name = "bottom_left_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottomLeft:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-628.331, 23.175, -14.381), Vector3(-128.331, 23.175, -14.381)]
+}
+
+[sub_resource type="Animation" id="Animation_264po"]
+resource_name = "bottom_left_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottomLeft:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-128.331, 23.175, -14.381), Vector3(-628.331, 23.175, -14.381)]
+}
+
+[sub_resource type="Animation" id="Animation_trtic"]
+resource_name = "bottom_right_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottomRight:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(628.317, 23.175, -14.381), Vector3(128.31747, 23.17505, -14.380867)]
+}
+
+[sub_resource type="Animation" id="Animation_ir15t"]
+resource_name = "bottom_right_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottomRight:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(128.31747, 23.17505, -14.380867), Vector3(628.317, 23.175, -14.381)]
+}
+
+[sub_resource type="Animation" id="Animation_ca42v"]
+resource_name = "top_left_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopLeft:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-628.331, 23.175, -64.446), Vector3(-128.33115, 23.17505, -64.446304)]
+}
+
+[sub_resource type="Animation" id="Animation_rysoc"]
+resource_name = "top_left_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopLeft:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-128.33115, 23.17505, -64.446304), Vector3(-628.331, 23.175, -64.446)]
+}
+
+[sub_resource type="Animation" id="Animation_kvpfn"]
+resource_name = "top_right_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopRight:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(528.317, 23.175, -64.446), Vector3(128.31747, 23.17505, -64.446304)]
+}
+
+[sub_resource type="Animation" id="Animation_kvuet"]
+resource_name = "top_right_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopRight:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(128.31747, 23.17505, -64.446304), Vector3(528.317, 23.175, -64.446)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvuet"]
+_data = {
+&"RESET": SubResource("Animation_dinhu"),
+&"bottom_left_in": SubResource("Animation_ssvqc"),
+&"bottom_left_out": SubResource("Animation_264po"),
+&"bottom_right_in": SubResource("Animation_trtic"),
+&"bottom_right_out": SubResource("Animation_ir15t"),
+&"top_left_in": SubResource("Animation_ca42v"),
+&"top_left_out": SubResource("Animation_rysoc"),
+&"top_right_in": SubResource("Animation_kvpfn"),
+&"top_right_out": SubResource("Animation_kvuet")
+}
+
 [node name="Game" type="Node3D"]
 script = ExtResource("1_uwrxv")
+
+[node name="HUD" parent="." instance=ExtResource("3_lnu2h")]
 
 [node name="Camera" type="Camera3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.1316336, 0.99129844, 0, -0.99129844, 0.1316336, 0, 397.0117, 26.435)
 current = true
 
-[node name="Framework" parent="." instance=ExtResource("2_yqjtg")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.66, 0)
+[node name="Lights" type="Node3D" parent="."]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, -0.5021449, 0.8647836, 0, -0.8647836, -0.5021449, 0, 287.91632, 0)
 light_energy = 0.5
 sky_mode = 1
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 229.49738, -39.899193)
 light_energy = 0.778
 light_angular_distance = 45.7
 sky_mode = 1
+
+[node name="Framework" parent="." instance=ExtResource("2_yqjtg")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.66, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yqjtg")
@@ -432,7 +628,31 @@ libraries = {
 &"": SubResource("AnimationLibrary_p57ef")
 }
 
-[node name="HUD" parent="." instance=ExtResource("3_lnu2h")]
+[node name="ExpansionCards" type="Node3D" parent="."]
 
+[node name="TopRight" type="Node3D" parent="ExpansionCards"]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 128.31747, 23.17505, -64.446304)
+
+[node name="BottomRight" type="Node3D" parent="ExpansionCards"]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 128.31747, 23.17505, -14.380867)
+
+[node name="TopLeft" type="Node3D" parent="ExpansionCards"]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -128.33115, 23.17505, -64.446304)
+
+[node name="BottomLeft" type="Node3D" parent="ExpansionCards"]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -128.331, 23.175, -14.381)
+
+[node name="ECAnimationPlayer" type="AnimationPlayer" parent="ExpansionCards"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_kvuet")
+}
+
+[connection signal="toggle_hud" from="." to="HUD" method="_on_game_toggle_hud"]
+[connection signal="dispatch_card" from="HUD" to="." method="_on_hud_dispatch_card"]
 [connection signal="animation_finished" from="Box/BoxAnimationPlayer" to="." method="_on_box_animation_player_animation_finished"]
 [connection signal="animation_finished" from="FrameworkAnimationPlayer" to="." method="_on_framework_animation_player_animation_finished"]

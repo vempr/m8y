@@ -19,6 +19,10 @@ run/main_scene="uid://ck7sr62mceqpt"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+G="*res://scripts/G.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -34,3 +38,6 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.20905733, 0.032588363, 0, 1)
+environment/size/viewport_height=1080
+environment/size/viewport_width=1920
+environment/stretch/mode="canvas_items"

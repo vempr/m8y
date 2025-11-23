@@ -1,7 +1,8 @@
 extends Control
 
-enum CARD { USB_C, USB_A, HDMI, ETHERNET, DISPLAY_PORT, MICRO_SD, SD, STORAGE }
-@export var card := CARD.USB_C
+signal dispatch(card: G.CARD)
+
+@export var card := G.CARD.USB_C
 
 
 func _ready() -> void:
@@ -14,4 +15,4 @@ func _process(_delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	print("kaboom")
+	dispatch.emit(card)

@@ -1,17 +1,35 @@
 extends Node3D
 
+signal toggle_hud(is_visible: bool)
+
+@onready var ExCDisplayPort := preload("res://scenes/expansion_cards/usb_a_hdmi_dp_expansion_card.tscn")
+@onready var ExCEthernet := preload("res://scenes/expansion_cards/ethernet_expansion_card.tscn")
+@onready var ExCHDMI := preload("res://scenes/expansion_cards/usb_a_hdmi_dp_expansion_card.tscn")
+@onready var ExCMicroSD := preload("res://scenes/expansion_cards/micro_sd_expansion_card.tscn")
+@onready var ExCSD := preload("res://scenes/expansion_cards/sd_expansion_card.tscn")
+@onready var ExCStorage := preload("res://scenes/expansion_cards/storage_expansion_card.tscn")
+@onready var ExCUsbA := preload("res://scenes/expansion_cards/usb_a_hdmi_dp_expansion_card.tscn")
+@onready var ExCUsbC := preload("res://scenes/expansion_cards/usb_c_expansion_card.tscn")
+
+const ZOOMED_OUT_FOV := 75.0
 const ZOOMED_IN_FOV := 45.0
 const ZOOM_SPEED := 3.0
 
 var animation_in_progress := false
 var start := false
+var cards := {
+	G.SLOT.TOP_LEFT: [],
+	G.SLOT.BOTTOM_LEFT: [],
+	G.SLOT.TOP_RIGHT: [],
+	G.SLOT.BOTTOM_RIGHT: [],
+}
 
 
 func _ready() -> void:
 	%Framework.visible = false
 	%Box.visible = false
 	await start_sequence()
-	
+	toggle_hud.emit(true)
 
 
 func start_sequence() -> bool:
@@ -43,7 +61,6 @@ func start_sequence() -> bool:
 	%FrameworkAnimationPlayer.play("hover_backwards")
 	await %FrameworkAnimationPlayer.animation_finished
 
-	await get_tree().create_timer(0.4).timeout
 	animation_in_progress = false
 	start = true
 	return true
@@ -88,3 +105,81 @@ func _on_box_animation_player_animation_finished(_anim_name: StringName) -> void
 
 func _on_framework_animation_player_animation_finished(_anim_name: StringName) -> void:
 	pass
+
+
+func _on_hud_dispatch_card(card: int, pos: int) -> void:
+	print(card, " + ", pos)
+	var expc
+	
+	match card:
+		G.CARD.USB_C:
+			expc = ExCUsbC.instantiate()
+		G.CARD.USB_A:
+			expc = ExCUsbA.instantiate()
+		G.CARD.HDMI:
+			expc = ExCHDMI.instantiate()
+		G.CARD.ETHERNET:
+			expc = ExCEthernet.instantiate()
+		G.CARD.DISPLAY_PORT:
+			expc = ExCDisplayPort.instantiate()
+		G.CARD.MICRO_SD:
+			expc = ExCMicroSD.instantiate()
+		G.CARD.SD:
+			expc = ExCSD.instantiate()
+		G.CARD.STORAGE:
+			expc = ExCStorage.instantiate()
+	
+	var cn: String = G.card_names[card]
+	match pos:
+		G.SLOT.TOP_LEFT:
+			%ECAnimationPlayer.play("top_left_in")
+			
+			if cn not in cards[G.SLOT.TOP_LEFT]:
+				cards[G.SLOT.TOP_LEFT].append(cn)
+				for child in %TopLeft.get_children():
+					child.visible = false
+				%TopLeft.add_child(expc)
+			else:
+				for child in %TopLeft.get_children():
+					child.visible = false
+				%TopLeft.get_node(cn).visible = true
+				
+		G.SLOT.BOTTOM_LEFT:
+			%ECAnimationPlayer.play("bottom_left_in")
+			
+			if cn not in cards[G.SLOT.BOTTOM_LEFT]:
+				cards[G.SLOT.BOTTOM_LEFT].append(cn)
+				for child in %BottomLeft.get_children():
+					child.visible = false
+				%BottomLeft.add_child(expc)
+			else:
+				for child in %BottomLeft.get_children():
+					child.visible = false
+				%BottomLeft.get_node(cn).visible = true
+				
+		G.SLOT.TOP_RIGHT:
+			%ECAnimationPlayer.play("top_right_in")
+			
+			if cn not in cards[G.SLOT.TOP_RIGHT]:
+				cards[G.SLOT.TOP_RIGHT].append(cn)
+				for child in %TopRight.get_children():
+					child.visible = false
+				%TopRight.add_child(expc)
+			else:
+				for child in %TopRight.get_children():
+					child.visible = false
+				%TopRight.get_node(cn).visible = true
+				
+		G.SLOT.BOTTOM_RIGHT:
+			%ECAnimationPlayer.play("bottom_right_in")
+			
+			if cn not in cards[G.SLOT.BOTTOM_RIGHT]:
+				cards[G.SLOT.BOTTOM_RIGHT].append(cn)
+				for child in %BottomRight.get_children():
+					child.visible = false
+				%BottomRight.add_child(expc)
+			else:
+				for child in %BottomRight.get_children():
+					child.visible = false
+				%BottomRight.get_node(cn).visible = true
+			
