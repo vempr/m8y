@@ -1,0 +1,920 @@
+[gd_scene load_steps=18 format=3 uid="uid://dmi0snx860ixc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_44hn4"]
+size = Vector3(260.805, 10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w6qvd"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w6qvd"]
+size = Vector3(205.005, 10, 7.485)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d44ma"]
+albedo_color = Color(0.69965345, 0.69965345, 0.69965345, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d44ma"]
+size = Vector3(33.37, 10, 7.485)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gdk2y"]
+size = Vector3(296.63, 10, 228.98)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwrxv"]
+albedo_color = Color(0.94428116, 0.94428116, 0.94428116, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uwrxv"]
+size = Vector3(216.63, 15.85, 228.98)
+
+[sub_resource type="BoxMesh" id="BoxMesh_goprx"]
+size = Vector3(40, 15.85, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3r8cd"]
+size = Vector3(40, 15.85, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kvqh5"]
+size = Vector3(40, 15.85, 108.855)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2j8li"]
+size = Vector3(1.625, 15.85, 18.59)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdk2y"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2j8li"]
+top_radius = 3.0
+bottom_radius = 3.0
+height = 26.17
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_goprx"]
+albedo_color = Color(0.772247, 0.7722471, 0.772247, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hd13m"]
+size = Vector3(3.94, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vn5en"]
+albedo_color = Color(0.48439813, 0.4843982, 0.48439813, 1)
+
+[node name="Framework" type="Node3D"]
+
+[node name="Pads" type="Node3D" parent="."]
+
+[node name="TopBar" type="MeshInstance3D" parent="Pads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1741638, -109.880905)
+mesh = SubResource("BoxMesh_44hn4")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_w6qvd")
+
+[node name="MiddleBar" type="MeshInstance3D" parent="Pads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.68515, -77.10536)
+mesh = SubResource("BoxMesh_w6qvd")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_d44ma")
+
+[node name="BottomLeftBar" type="MeshInstance3D" parent="Pads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.04447, 5.68515, 91.36949)
+mesh = SubResource("BoxMesh_d44ma")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_d44ma")
+
+[node name="BottomRightBar" type="MeshInstance3D" parent="Pads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.10881, 5.68515, 91.36949)
+mesh = SubResource("BoxMesh_d44ma")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_d44ma")
+
+[node name="Base" type="Node3D" parent="."]
+
+[node name="Bottom" type="MeshInstance3D" parent="Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.0957336, 0)
+mesh = SubResource("BoxMesh_gdk2y")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_uwrxv")
+
+[node name="Middle" type="MeshInstance3D" parent="Base"]
+mesh = SubResource("BoxMesh_uwrxv")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_uwrxv")
+
+[node name="Left" type="Node3D" parent="Base"]
+
+[node name="Up" type="MeshInstance3D" parent="Base/Left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.29749, 0, -99.53692)
+mesh = SubResource("BoxMesh_goprx")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_uwrxv")
+
+[node name="Middle" type="MeshInstance3D" parent="Base/Left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.29749, 0, -39.408066)
+mesh = SubResource("BoxMesh_3r8cd")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_uwrxv")
+
+[node name="Bottom" type="MeshInstance3D" parent="Base/Left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.29749, 0, 60.012157)
+mesh = SubResource("BoxMesh_kvqh5")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_uwrxv")
+
+[node name="Right" type="Node3D" parent="Base"]
+
+[node name="Up" type="MeshInstance3D" parent="Base/Right"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.29341, 0, -99.53692)
+mesh = SubResource("BoxMesh_goprx")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_uwrxv")
+
+[node name="Middle" type="MeshInstance3D" parent="Base/Right"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.29341, 0, -39.408066)
+mesh = SubResource("BoxMesh_3r8cd")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_uwrxv")
+
+[node name="Bottom" type="MeshInstance3D" parent="Base/Right"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.29341, 0, 60.012157)
+mesh = SubResource("BoxMesh_kvqh5")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_uwrxv")
+
+[node name="Fans" type="Node3D" parent="."]
+
+[node name="Upper" type="Node3D" parent="Fans"]
+
+[node name="Hole" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.72829, 0.45133972, -51.121796)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole2" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.72859, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole3" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.72859, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole4" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.67859, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole5" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.82322, 0.45133972, -51.121796)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole6" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.823524, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole7" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.823524, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole8" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.77352, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole9" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.872005, 0.45133972, -51.121796)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole10" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.87231, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole11" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.87231, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole12" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.822308, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole13" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.966938, 0.45133972, -51.121796)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole14" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.967243, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole15" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.967243, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole16" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.91724, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole17" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.801086, 0.45133972, -51.121796)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole18" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.80139, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole19" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.80139, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole20" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.751387, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole21" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.896017, 0.45133972, -51.121796)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole22" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.896322, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole23" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.896322, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole24" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.846319, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole25" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.849319, 0.45133972, -51.121796)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole26" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8496246, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole27" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8496246, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole28" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20037842, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole29" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.055748, 0.45133972, -51.121796)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole30" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.055443, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole31" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.055443, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole32" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.105446, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole33" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.006962, 0.45133972, -51.121796)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole34" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.006657, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole35" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.006657, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole36" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.05666, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole37" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.91203, 0.45133972, -51.121796)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole38" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.911724, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole39" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.911724, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole40" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.961727, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole41" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.07788, 0.45133972, -51.121796)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole42" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.077576, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole43" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.077576, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole44" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.12758, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole45" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.98295, 0.45133972, -51.121796)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole46" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.982643, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole47" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.982643, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole48" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.032646, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole49" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.080063, 0.45133972, -51.121796)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole50" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.07976, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole51" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.07976, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole52" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.12976, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole53" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.98513, 0.45133972, -51.121796)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole54" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.984825, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole55" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.984825, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole56" type="MeshInstance3D" parent="Fans/Upper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.03483, 0.451, -51.122)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Lower" type="Node3D" parent="Fans"]
+
+[node name="Hole" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.72829, 0.45133972, -30.433449)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole2" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.72859, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole3" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.72859, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole4" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.67859, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole5" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.82322, 0.45133972, -30.433449)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole6" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.823524, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole7" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.823524, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole8" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.77352, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole9" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.872005, 0.45133972, -30.433449)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole10" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.87231, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole11" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.87231, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole12" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.822308, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole13" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.966938, 0.45133972, -30.433449)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole14" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.967243, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole15" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.967243, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole16" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.91724, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole17" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.801086, 0.45133972, -30.433449)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole18" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.80139, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole19" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.80139, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole20" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.751387, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole21" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.896017, 0.45133972, -30.433449)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole22" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.896322, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole23" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.896322, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole24" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.846319, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole25" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.849319, 0.45133972, -30.433449)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole26" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8496246, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole27" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8496246, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole28" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20037842, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole29" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.055748, 0.45133972, -30.433449)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole30" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.055443, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole31" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.055443, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole32" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.105446, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole33" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.006962, 0.45133972, -30.433449)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole34" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.006657, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole35" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.006657, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole36" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.05666, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole37" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.91203, 0.45133972, -30.433449)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole38" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.911724, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole39" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.911724, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole40" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.961727, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole41" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.07788, 0.45133972, -30.433449)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole42" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.077576, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole43" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.077576, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole44" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.12758, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole45" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.98295, 0.45133972, -30.433449)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole46" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.982643, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole47" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.982643, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole48" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.032646, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole49" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.080063, 0.45133972, -30.433449)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole50" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.07976, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole51" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.07976, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole52" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.12976, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole53" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.98513, 0.45133972, -30.433449)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole54" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.984825, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole55" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.984825, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Hole56" type="MeshInstance3D" parent="Fans/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.03483, 0.451, -30.433655)
+mesh = SubResource("BoxMesh_2j8li")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdk2y")
+
+[node name="Screws" type="Node3D" parent="."]
+
+[node name="BottomLeft" type="Node3D" parent="Screws"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.54877, 0, 100.605675)
+
+[node name="Base" type="MeshInstance3D" parent="Screws/BottomLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.8050537, 0)
+mesh = SubResource("CylinderMesh_2j8li")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_goprx")
+
+[node name="Hole" type="MeshInstance3D" parent="Screws/BottomLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.783, 0)
+mesh = SubResource("BoxMesh_hd13m")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_vn5en")
+
+[node name="Hole2" type="MeshInstance3D" parent="Screws/BottomLeft"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 7.783, 0)
+mesh = SubResource("BoxMesh_hd13m")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_vn5en")
+
+[node name="BottomRight" type="Node3D" parent="Screws"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.2865, 0, 100.605675)
+
+[node name="Base" type="MeshInstance3D" parent="Screws/BottomRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.8050537, 0)
+mesh = SubResource("CylinderMesh_2j8li")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_goprx")
+
+[node name="Hole" type="MeshInstance3D" parent="Screws/BottomRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.783, 0)
+mesh = SubResource("BoxMesh_hd13m")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_vn5en")
+
+[node name="Hole2" type="MeshInstance3D" parent="Screws/BottomRight"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 7.783, 0)
+mesh = SubResource("BoxMesh_hd13m")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_vn5en")
+
+[node name="TopRight" type="Node3D" parent="Screws"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.18332, 0, -109.81275)
+
+[node name="Base" type="MeshInstance3D" parent="Screws/TopRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.8050537, 0)
+mesh = SubResource("CylinderMesh_2j8li")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_goprx")
+
+[node name="Hole" type="MeshInstance3D" parent="Screws/TopRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.783, 0)
+mesh = SubResource("BoxMesh_hd13m")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_vn5en")
+
+[node name="Hole2" type="MeshInstance3D" parent="Screws/TopRight"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 7.783, 0)
+mesh = SubResource("BoxMesh_hd13m")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_vn5en")
+
+[node name="TopLeft" type="Node3D" parent="Screws"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138.57153, 0, -109.81275)
+
+[node name="Base" type="MeshInstance3D" parent="Screws/TopLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.8050537, 0)
+mesh = SubResource("CylinderMesh_2j8li")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_goprx")
+
+[node name="Hole" type="MeshInstance3D" parent="Screws/TopLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.783, 0)
+mesh = SubResource("BoxMesh_hd13m")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_vn5en")
+
+[node name="Hole2" type="MeshInstance3D" parent="Screws/TopLeft"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 7.783, 0)
+mesh = SubResource("BoxMesh_hd13m")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_vn5en")
+
+[node name="Middle" type="Node3D" parent="Screws"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.119148254, 0, -91.62332)
+
+[node name="Base" type="MeshInstance3D" parent="Screws/Middle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.8050537, 0)
+mesh = SubResource("CylinderMesh_2j8li")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_goprx")
+
+[node name="Hole" type="MeshInstance3D" parent="Screws/Middle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.783, 0)
+mesh = SubResource("BoxMesh_hd13m")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_vn5en")
+
+[node name="Hole2" type="MeshInstance3D" parent="Screws/Middle"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 7.783, 0)
+mesh = SubResource("BoxMesh_hd13m")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_vn5en")

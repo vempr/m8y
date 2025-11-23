@@ -1,6 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://ck7sr62mceqpt"]
+[gd_scene load_steps=3 format=3 uid="uid://ck7sr62mceqpt"]
 
 [ext_resource type="Script" uid="uid://c2tysoh0727ud" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dmi0snx860ixc" path="res://scenes/framework.tscn" id="2_yqjtg"]
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_uwrxv")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.1316336, 0.99129844, 0, -0.99129844, 0.1316336, 0, 193.60313, 26.43541)
+current = true
+
+[node name="Framework" parent="." instance=ExtResource("2_yqjtg")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.5021449, 0.8647836, 0, -0.8647836, -0.5021449, 0, 287.91632, 0)
+light_energy = 0.5
+sky_mode = 1
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 229.49738, -39.899193)
+light_energy = 0.778
+light_angular_distance = 45.7
+sky_mode = 1
