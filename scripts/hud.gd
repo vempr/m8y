@@ -180,7 +180,13 @@ func _on_right_pressed() -> void:
 
 func _on_game_reveal_hud() -> void:
 	if perspective == 0:
-		%Ship.disabled = false
+		var tl = S.positions[G.SLOT.TOP_LEFT]
+		var bl = S.positions[G.SLOT.BOTTOM_LEFT]
+		var tor = S.positions[G.SLOT.TOP_RIGHT]
+		var br = S.positions[G.SLOT.BOTTOM_RIGHT]
+		if tl != null && bl != null && tor != null && br != null:
+			%Ship.disabled = false
+		
 		hi(true)
 		_on_game_update_hud()
 	else:
@@ -194,6 +200,7 @@ func hi(vis: bool) -> void:
 
 
 func _on_ship_pressed() -> void:
+	%MouseClick.play(0.15)
 	%Ship.disabled = true
 	hi(false)
 	hide_all_slots()

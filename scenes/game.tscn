@@ -1,9 +1,17 @@
-[gd_scene load_steps=38 format=3 uid="uid://ck7sr62mceqpt"]
+[gd_scene load_steps=46 format=3 uid="uid://ck7sr62mceqpt"]
 
 [ext_resource type="Script" uid="uid://c2tysoh0727ud" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dmi0snx860ixc" path="res://scenes/framework.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cnd3h5kpl3a2n" path="res://scenes/hud.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://uilwkdc3v3uq" path="res://scenes/expansion_cards/placeholder_expansion_card.tscn" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://bf7ldeq8kuddt" path="res://scripts/sound.gd" id="5_iywne"]
+[ext_resource type="AudioStream" uid="uid://d3pkajo5uhrs4" path="res://sound/Whoosh.mp3" id="6_dinhu"]
+[ext_resource type="AudioStream" uid="uid://b73kemhw8wf04" path="res://sound/BigWhoosh.mp3" id="6_kvpfn"]
+[ext_resource type="AudioStream" uid="uid://bs657a6xd0qe8" path="res://sound/dossier_be_like.mp3" id="6_p57ef"]
+[ext_resource type="AudioStream" uid="uid://i2q1r6k51op1" path="res://sound/OpenBox.mp3" id="6_vtaks"]
+[ext_resource type="AudioStream" uid="uid://d3osa67l84cg4" path="res://sound/PackUp.mp3" id="7_kvpfn"]
+[ext_resource type="AudioStream" uid="uid://d2x1pws7i1ahu" path="res://sound/Click.mp3" id="7_u5sy4"]
+[ext_resource type="AudioStream" uid="uid://bhfu5jtvhsh2b" path="res://sound/PlaceDown.mp3" id="8_dinhu"]
 
 [sub_resource type="Environment" id="Environment_yqjtg"]
 background_energy_multiplier = 3.0
@@ -732,6 +740,42 @@ root_node = NodePath("../Framework")
 libraries = {
 &"": SubResource("AnimationLibrary_kvuet")
 }
+
+[node name="Sound" type="Node" parent="."]
+script = ExtResource("5_iywne")
+
+[node name="Whoosh" type="AudioStreamPlayer" parent="Sound"]
+unique_name_in_owner = true
+stream = ExtResource("6_dinhu")
+volume_db = -20.0
+pitch_scale = 1.4
+
+[node name="BigWhoosh" type="AudioStreamPlayer" parent="Sound"]
+unique_name_in_owner = true
+stream = ExtResource("6_kvpfn")
+volume_db = -5.0
+
+[node name="OpenBox" type="AudioStreamPlayer" parent="Sound"]
+unique_name_in_owner = true
+stream = ExtResource("6_vtaks")
+volume_db = -10.0
+
+[node name="PackUp" type="AudioStreamPlayer" parent="Sound"]
+unique_name_in_owner = true
+stream = ExtResource("7_kvpfn")
+
+[node name="PlaceDown" type="AudioStreamPlayer" parent="Sound"]
+unique_name_in_owner = true
+stream = ExtResource("8_dinhu")
+
+[node name="DossierBeLike" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("6_p57ef")
+volume_db = -10.0
+autoplay = true
+
+[node name="Click" type="AudioStreamPlayer" parent="Sound"]
+unique_name_in_owner = true
+stream = ExtResource("7_u5sy4")
 
 [connection signal="inform_hud" from="." to="HUD" method="_on_game_inform_hud"]
 [connection signal="reveal_hud" from="." to="HUD" method="_on_game_reveal_hud"]

@@ -64,10 +64,12 @@ func start_sequence() -> bool:
 	await get_tree().create_timer(0.1).timeout
 	
 	%Box.visible = true
+	%BigWhoosh.play()
 	%BoxAnimationPlayer.play("move_backwards")
 	await %BoxAnimationPlayer.animation_finished
 	%Framework.visible = true
 	
+	%OpenBox.play()
 	%BoxAnimationPlayer.play("open")
 	await %BoxAnimationPlayer.animation_finished
 	
@@ -79,6 +81,7 @@ func start_sequence() -> bool:
 	
 	%FrameworkAnimationPlayer.play("hover_backwards")
 	await %FrameworkAnimationPlayer.animation_finished
+	%PlaceDown.play()
 
 	animation_in_progress = false
 	start = true
@@ -98,14 +101,15 @@ func end_sequence() -> bool:
 	%FrameworkAnimationPlayer.play("hover_backwards")
 	await %FrameworkAnimationPlayer.animation_finished
 	
+	%PackUp.play(2.30)
 	%BoxAnimationPlayer.play("open_backwards")
 	await %BoxAnimationPlayer.animation_finished
-
+	
 	%Framework.visible = false
 	%BoxAnimationPlayer.play("move")
 	await %BoxAnimationPlayer.animation_finished
 	%Box.visible = false
-
+	
 	animation_in_progress = false
 	return true
 
@@ -216,8 +220,11 @@ func _on_hud_dispatch_card(card: int, pos: int) -> void:
 				%BottomRight.get_node(cn).visible = true
 
 
-func _on_ec_animation_player_animation_finished(_anim_name: StringName) -> void:
+func _on_ec_animation_player_animation_finished(anim_name: StringName) -> void:
 	update_hud.emit()
+	if anim_name in ["top_left_in", "bottom_left_in", "top_right_in", "bottom_right_in"]:
+		%Click.volume_db = 0.0
+		%Click.play()
 
 
 func _on_hud_remove_card(pos: int) -> void:
@@ -225,6 +232,8 @@ func _on_hud_remove_card(pos: int) -> void:
 		return
 	
 	print("-", pos)
+	%Click.volume_db = -5.0
+	%Click.play()
 	
 	match pos:
 		G.SLOT.TOP_LEFT:
@@ -242,6 +251,8 @@ func _on_hud_remove_card(pos: int) -> void:
 
 
 func _on_hud_animate(from: int, to: int) -> void:
+	%Whoosh.play()
+	
 	if from == -1 && to == 0:
 		%FrameworkAnimationPlayer.play("flip_left_reverse")
 	elif from == 0 && to == 1:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://cnd3h5kpl3a2n"]
+[gd_scene load_steps=27 format=3 uid="uid://cnd3h5kpl3a2n"]
 
 [ext_resource type="Script" uid="uid://dsxgkfc2dobjj" path="res://scripts/hud.gd" id="1_0m4u7"]
 [ext_resource type="FontFile" uid="uid://wtc0npxw7fds" path="res://assets/fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" id="1_ahhtf"]
 [ext_resource type="PackedScene" uid="uid://bm8rg7sdblqcf" path="res://scenes/hud_expc_buttons/dp_expansion_card_btn.tscn" id="2_0i1j5"]
+[ext_resource type="AudioStream" uid="uid://v6ufe7vu6agw" path="res://sound/MouseClick.mp3" id="2_iypfu"]
 [ext_resource type="FontFile" uid="uid://depjvdpdchopw" path="res://assets/fonts/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" id="3_0m4u7"]
 [ext_resource type="PackedScene" uid="uid://bynbvcriyg8dg" path="res://scenes/hud_expc_buttons/ethernet_expansion_card_btn.tscn" id="3_mphia"]
 [ext_resource type="PackedScene" uid="uid://f7i87msmnh4o" path="res://scenes/hud_expc_buttons/hdmi_expansion_card_btn.tscn" id="4_0m4u7"]
@@ -60,6 +61,10 @@ corner_radius_bottom_left = 999
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_0m4u7")
+
+[node name="MouseClick" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_iypfu")
 
 [node name="Debug" type="Control" parent="."]
 visible = false

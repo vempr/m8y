@@ -17,6 +17,8 @@ universal_fade/patterns_directory="res://addons/UniversalFade/Patterns"
 config/name="m8y"
 run/main_scene="uid://ck7sr62mceqpt"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/bg_color=Color(0.81, 0.40472996, 0.17009999, 1)
+boot_splash/image="uid://cp5g8v5di1oon"
 config/icon="res://icon.svg"
 
 [autoload]
