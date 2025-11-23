@@ -18,16 +18,16 @@
 [ext_resource type="StyleBox" uid="uid://bedavrh8km7qu" path="res://styles/round_rmv_pressed.tres" id="16_5357l"]
 [ext_resource type="StyleBox" uid="uid://cnkb1ovgydcs7" path="res://styles/round_rmv_hover.tres" id="17_iypfu"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5n1hp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eld54"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3swnk"]
 bg_color = Color(0.29411766, 0.41960785, 1, 0.92156863)
 corner_radius_top_left = 999
 corner_radius_top_right = 999
 corner_radius_bottom_right = 999
 corner_radius_bottom_left = 999
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5n1hp"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eld54"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_0m4u7")
@@ -288,12 +288,107 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.3137255)
 
+[node name="View" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 38.0
+offset_top = 871.0
+offset_right = 282.0
+offset_bottom = 1009.0
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="View"]
+z_index = 1
+layout_mode = 0
+offset_left = 21.0
+offset_top = 10.0
+offset_right = 227.0
+offset_bottom = 94.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -6
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("3_0m4u7")
+theme_override_font_sizes/font_size = 18
+text = "View the Framework
+from different angles!"
+horizontal_alignment = 2
+
+[node name="ColorRect" type="ColorRect" parent="View"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -70.0
+offset_right = 122.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.13333334, 0, 0.23529412)
+
+[node name="ColorRect2" type="ColorRect" parent="View"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -105.5
+offset_top = 9.0
+offset_right = 109.5
+offset_bottom = 58.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.3137255)
+
+[node name="Left" type="Button" parent="View"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 19.0
+offset_top = 76.0
+offset_right = 213.0
+offset_bottom = 172.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_eld54")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = ExtResource("15_uxdf7")
+theme_override_styles/pressed = ExtResource("16_5357l")
+theme_override_styles/hover = ExtResource("17_iypfu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5n1hp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eld54")
+text = "<"
+
+[node name="Right" type="Button" parent="View"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 131.0
+offset_top = 76.0
+offset_right = 327.0
+offset_bottom = 172.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_eld54")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = ExtResource("15_uxdf7")
+theme_override_styles/pressed = ExtResource("16_5357l")
+theme_override_styles/hover = ExtResource("17_iypfu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5n1hp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eld54")
+text = ">"
+
 [node name="Choices" type="Control" parent="."]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="TopLeftButton" type="Button" parent="Choices"]
 unique_name_in_owner = true
@@ -359,15 +454,22 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5n1hp")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eld54")
 text = "4"
 
-[node name="Labels" type="Control" parent="."]
+[node name="C" type="Control" parent="."]
 unique_name_in_owner = true
 layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Labels" type="Control" parent="C"]
+unique_name_in_owner = true
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
-[node name="TopLeftLabel" type="Label" parent="Labels"]
+[node name="TopLeftLabel" type="Label" parent="C/Labels"]
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 0
@@ -375,7 +477,7 @@ offset_left = 467.0
 offset_top = 277.0
 offset_right = 753.0
 offset_bottom = 329.0
-theme_override_colors/font_color = Color(0.4034024, 0.5353772, 1, 1)
+theme_override_colors/font_color = Color(0.95245856, 0.34377173, 0.22437331, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -6
 theme_override_constants/shadow_outline_size = 1
@@ -384,7 +486,7 @@ theme_override_font_sizes/font_size = 40
 text = "USB-C"
 vertical_alignment = 1
 
-[node name="BottomLeftLabel" type="Label" parent="Labels"]
+[node name="BottomLeftLabel" type="Label" parent="C/Labels"]
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 0
@@ -392,7 +494,7 @@ offset_left = 450.0
 offset_top = 648.0
 offset_right = 760.0
 offset_bottom = 700.0
-theme_override_colors/font_color = Color(0.4034024, 0.5353772, 1, 1)
+theme_override_colors/font_color = Color(0.95245856, 0.34377173, 0.22437331, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -6
 theme_override_constants/shadow_outline_size = 1
@@ -401,7 +503,7 @@ theme_override_font_sizes/font_size = 40
 text = "DisplayPort"
 vertical_alignment = 1
 
-[node name="TopRightLabel" type="Label" parent="Labels"]
+[node name="TopRightLabel" type="Label" parent="C/Labels"]
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 0
@@ -409,7 +511,7 @@ offset_left = 1160.0
 offset_top = 277.0
 offset_right = 1446.0
 offset_bottom = 329.0
-theme_override_colors/font_color = Color(0.4034024, 0.5353772, 1, 1)
+theme_override_colors/font_color = Color(0.95245856, 0.34377173, 0.22437331, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -6
 theme_override_constants/shadow_outline_size = 1
@@ -419,7 +521,7 @@ text = "USB-A"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="BottomRightLabel" type="Label" parent="Labels"]
+[node name="BottomRightLabel" type="Label" parent="C/Labels"]
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 0
@@ -427,7 +529,7 @@ offset_left = 1160.0
 offset_top = 648.0
 offset_right = 1470.0
 offset_bottom = 700.0
-theme_override_colors/font_color = Color(0.4034024, 0.5353772, 1, 1)
+theme_override_colors/font_color = Color(0.95245856, 0.34377173, 0.22437331, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -6
 theme_override_constants/shadow_outline_size = 1
@@ -437,15 +539,15 @@ text = "Ethernet"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Remove" type="Control" parent="."]
+[node name="Remove" type="Control" parent="C"]
 unique_name_in_owner = true
-layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
-[node name="TopLeftRemove" type="Button" parent="Remove"]
+[node name="TopLeftRemove" type="Button" parent="C/Remove"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 489.0
@@ -453,6 +555,8 @@ offset_top = 370.0
 offset_right = 589.0
 offset_bottom = 470.0
 scale = Vector2(0.5, 0.5)
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("12_eld54")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("15_uxdf7")
@@ -462,7 +566,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5n1hp")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eld54")
 text = "X"
 
-[node name="BottomLeftRemove" type="Button" parent="Remove"]
+[node name="BottomLeftRemove" type="Button" parent="C/Remove"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 486.0
@@ -470,6 +574,8 @@ offset_top = 549.0
 offset_right = 586.0
 offset_bottom = 649.0
 scale = Vector2(0.5, 0.5)
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("12_eld54")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("15_uxdf7")
@@ -479,7 +585,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5n1hp")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eld54")
 text = "X"
 
-[node name="TopRightRemove" type="Button" parent="Remove"]
+[node name="TopRightRemove" type="Button" parent="C/Remove"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 1383.0
@@ -487,6 +593,8 @@ offset_top = 378.0
 offset_right = 1483.0
 offset_bottom = 478.0
 scale = Vector2(0.5, 0.5)
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("12_eld54")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("15_uxdf7")
@@ -496,7 +604,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5n1hp")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eld54")
 text = "X"
 
-[node name="BottomRightRemove" type="Button" parent="Remove"]
+[node name="BottomRightRemove" type="Button" parent="C/Remove"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 1389.0
@@ -504,6 +612,8 @@ offset_top = 545.0
 offset_right = 1489.0
 offset_bottom = 645.0
 scale = Vector2(0.5, 0.5)
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("12_eld54")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("15_uxdf7")
@@ -521,11 +631,13 @@ text = "X"
 [connection signal="dispatch" from="ExpansionCards/EC/StorageExpansionCardBtn" to="." method="_on_expansion_card_btn_dispatch"]
 [connection signal="dispatch" from="ExpansionCards/EC/UsbAExpansionCardBtn" to="." method="_on_expansion_card_btn_dispatch"]
 [connection signal="dispatch" from="ExpansionCards/EC/UsbCExpansionCardBtn" to="." method="_on_expansion_card_btn_dispatch"]
+[connection signal="pressed" from="View/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="View/Right" to="." method="_on_right_pressed"]
 [connection signal="pressed" from="Choices/TopLeftButton" to="." method="_on_top_left_button_pressed"]
 [connection signal="pressed" from="Choices/BottomLeftButton" to="." method="_on_bottom_left_button_pressed"]
 [connection signal="pressed" from="Choices/TopRightButton" to="." method="_on_top_right_button_pressed"]
 [connection signal="pressed" from="Choices/BottomRightButton" to="." method="_on_bottom_right_button_pressed"]
-[connection signal="pressed" from="Remove/TopLeftRemove" to="." method="_on_top_left_remove_pressed"]
-[connection signal="pressed" from="Remove/BottomLeftRemove" to="." method="_on_bottom_left_remove_pressed"]
-[connection signal="pressed" from="Remove/TopRightRemove" to="." method="_on_top_right_remove_pressed"]
-[connection signal="pressed" from="Remove/BottomRightRemove" to="." method="_on_bottom_right_remove_pressed"]
+[connection signal="pressed" from="C/Remove/TopLeftRemove" to="." method="_on_top_left_remove_pressed"]
+[connection signal="pressed" from="C/Remove/BottomLeftRemove" to="." method="_on_bottom_left_remove_pressed"]
+[connection signal="pressed" from="C/Remove/TopRightRemove" to="." method="_on_top_right_remove_pressed"]
+[connection signal="pressed" from="C/Remove/BottomRightRemove" to="." method="_on_bottom_right_remove_pressed"]

@@ -12,6 +12,6 @@ albedo_color = Color(0, 0, 0, 1)
 card = 5
 
 [node name="MicroSDHole" type="MeshInstance3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7846985, -12.717)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7846985, -12.816657)
 mesh = SubResource("BoxMesh_xnhfy")
 surface_material_override/0 = SubResource("StandardMaterial3D_dmvxb")

@@ -12,6 +12,6 @@ albedo_color = Color(0, 0, 0, 1)
 card = 1
 
 [node name="USBAHole" type="MeshInstance3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.717)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.83977)
 mesh = SubResource("BoxMesh_u6vgp")
 surface_material_override/0 = SubResource("StandardMaterial3D_hf1db")

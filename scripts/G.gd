@@ -21,8 +21,8 @@ var cns := {
 	CARD.USB_A: "USB-A",
 	CARD.HDMI: "HDMI",
 	CARD.ETHERNET: "Ethernet",
-	CARD.DISPLAY_PORT: "DP",
-	CARD.MICRO_SD: "Micro SD",
+	CARD.DISPLAY_PORT: "DisplayPort",
+	CARD.MICRO_SD: "MicroSD",
 	CARD.SD: "SD",
 	CARD.STORAGE: "Storage",
 }

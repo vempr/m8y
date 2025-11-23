@@ -2,6 +2,7 @@ extends Node3D
 
 signal toggle_hud(is_visible: bool)
 signal update_hud
+signal reveal_hud
 
 @onready var ExCDisplayPort := preload("res://scenes/expansion_cards/usb_a_hdmi_dp_expansion_card.tscn")
 @onready var ExCEthernet := preload("res://scenes/expansion_cards/ethernet_expansion_card.tscn")
@@ -27,6 +28,7 @@ var cards := {
 
 
 func _ready() -> void:
+	%Camera.fov = ZOOMED_OUT_FOV
 	%Framework.visible = false
 	%Box.visible = false
 	await start_sequence()
@@ -104,11 +106,15 @@ func _on_box_animation_player_animation_finished(_anim_name: StringName) -> void
 	pass
 
 
-func _on_framework_animation_player_animation_finished(_anim_name: StringName) -> void:
-	pass
+func _on_framework_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name in ["flip_left_reverse", "flip_right", "flip_right_reverse", "flip_left"]:
+		reveal_hud.emit()
 
 
 func _on_hud_dispatch_card(card: int, pos: int) -> void:
+	if %ECAnimationPlayer.is_playing():
+		return
+	
 	print(card, "@", pos)
 	var expc
 	
@@ -194,6 +200,9 @@ func _on_ec_animation_player_animation_finished(_anim_name: StringName) -> void:
 
 
 func _on_hud_remove_card(pos: int) -> void:
+	if %ECAnimationPlayer.is_playing():
+		return
+	
 	print("-", pos)
 	
 	match pos:
@@ -209,4 +218,14 @@ func _on_hud_remove_card(pos: int) -> void:
 		G.SLOT.BOTTOM_RIGHT:
 			S.positions[G.SLOT.BOTTOM_RIGHT] = null
 			%ECAnimationPlayer.play("bottom_right_out")
-	
+
+
+func _on_hud_animate(from: int, to: int) -> void:
+	if from == -1 && to == 0:
+		%FrameworkAnimationPlayer.play("flip_left_reverse")
+	elif from == 0 && to == 1:
+		%FrameworkAnimationPlayer.play("flip_right")
+	elif from == 1 && to == 0:
+		%FrameworkAnimationPlayer.play("flip_right_reverse")
+	elif from == 0 && to == -1:
+		%FrameworkAnimationPlayer.play("flip_left")

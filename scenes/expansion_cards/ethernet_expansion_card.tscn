@@ -23,7 +23,7 @@ mesh = SubResource("BoxMesh_h6wkt")
 surface_material_override/0 = SubResource("StandardMaterial3D_mf12c")
 
 [node name="EthernetHole" type="MeshInstance3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.294388, -34.508575)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.294388, -34.565865)
 mesh = SubResource("BoxMesh_vfi4l")
 skeleton = NodePath("../EthernetExtension")
 surface_material_override/0 = SubResource("StandardMaterial3D_2e775")

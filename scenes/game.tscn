@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://ck7sr62mceqpt"]
+[gd_scene load_steps=38 format=3 uid="uid://ck7sr62mceqpt"]
 
 [ext_resource type="Script" uid="uid://c2tysoh0727ud" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dmi0snx860ixc" path="res://scenes/framework.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cnd3h5kpl3a2n" path="res://scenes/hud.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://uilwkdc3v3uq" path="res://scenes/expansion_cards/placeholder_expansion_card.tscn" id="4_lbhrr"]
 
 [sub_resource type="Environment" id="Environment_yqjtg"]
 background_energy_multiplier = 3.0
@@ -282,6 +283,22 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 3.1415927)]
 }
 
+[sub_resource type="Animation" id="Animation_1kice"]
+resource_name = "flip_left"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Framework:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, -1.4835298)]
+}
+
 [sub_resource type="Animation" id="Animation_lbhrr"]
 resource_name = "hover"
 length = 0.3
@@ -314,10 +331,62 @@ tracks/0/keys = {
 "values": [Vector3(0, 160, 0), Vector3(0, 18.66, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_5newe"]
+resource_name = "flip_left_reverse"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Framework:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, -1.4835298), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_37s47"]
+resource_name = "flip_right"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Framework:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5707964, 1.4835298)]
+}
+
+[sub_resource type="Animation" id="Animation_bt5mj"]
+resource_name = "flip_right_reverse"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Framework:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5707964, 1.4835298), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p57ef"]
 _data = {
 &"RESET": SubResource("Animation_iywne"),
 &"flip": SubResource("Animation_vtaks"),
+&"flip_left": SubResource("Animation_1kice"),
+&"flip_left_reverse": SubResource("Animation_5newe"),
+&"flip_right": SubResource("Animation_37s47"),
+&"flip_right_reverse": SubResource("Animation_bt5mj"),
 &"hover": SubResource("Animation_lbhrr"),
 &"hover_backwards": SubResource("Animation_u5sy4")
 }
@@ -334,7 +403,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(128.31747, 23.17505, -64.446304)]
+"values": [Vector3(128.317, 4.515, -64.446)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -346,7 +415,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(128.31747, 23.17505, -14.380867)]
+"values": [Vector3(128.317, 4.515, -14.381)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -358,7 +427,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-128.33115, 23.17505, -64.446304)]
+"values": [Vector3(-128.331, 4.515, -64.446)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -370,7 +439,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-128.331, 23.175, -14.381)]
+"values": [Vector3(-128.331, 4.515, -14.381)]
 }
 
 [sub_resource type="Animation" id="Animation_ssvqc"]
@@ -386,7 +455,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-628.331, 23.175, -14.381), Vector3(-128.331, 23.175, -14.381)]
+"values": [Vector3(-628.331, 4.515, -14.381), Vector3(-128.331, 4.515, -14.381)]
 }
 
 [sub_resource type="Animation" id="Animation_264po"]
@@ -402,7 +471,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-128.331, 23.175, -14.381), Vector3(-628.331, 23.175, -14.381)]
+"values": [Vector3(-128.331, 4.515, -14.381), Vector3(-628.331, 4.515, -14.381)]
 }
 
 [sub_resource type="Animation" id="Animation_trtic"]
@@ -418,7 +487,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(628.317, 23.175, -14.381), Vector3(128.31747, 23.17505, -14.380867)]
+"values": [Vector3(628.317, 4.515, -14.381), Vector3(128.317, 4.515, -14.381)]
 }
 
 [sub_resource type="Animation" id="Animation_ir15t"]
@@ -434,7 +503,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(128.31747, 23.17505, -14.380867), Vector3(628.317, 23.175, -14.381)]
+"values": [Vector3(128.317, 4.515, -14.381), Vector3(628.317, 4.515, -14.381)]
 }
 
 [sub_resource type="Animation" id="Animation_ca42v"]
@@ -450,7 +519,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-628.331, 23.175, -64.446), Vector3(-128.33115, 23.17505, -64.446304)]
+"values": [Vector3(-628.331, 4.515, -64.446), Vector3(-128.331, 4.515, -64.446)]
 }
 
 [sub_resource type="Animation" id="Animation_rysoc"]
@@ -466,7 +535,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-128.33115, 23.17505, -64.446304), Vector3(-628.331, 23.175, -64.446)]
+"values": [Vector3(-128.331, 4.515, -64.446), Vector3(-628.331, 4.515, -64.446)]
 }
 
 [sub_resource type="Animation" id="Animation_kvpfn"]
@@ -482,7 +551,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(528.317, 23.175, -64.446), Vector3(128.31747, 23.17505, -64.446304)]
+"values": [Vector3(528.317, 4.515, -64.446), Vector3(128.317, 4.515, -64.446)]
 }
 
 [sub_resource type="Animation" id="Animation_kvuet"]
@@ -498,7 +567,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(128.31747, 23.17505, -64.446304), Vector3(528.317, 23.175, -64.446)]
+"values": [Vector3(128.317, 4.515, -64.446), Vector3(528.317, 4.515, -64.446)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kvuet"]
@@ -523,6 +592,7 @@ script = ExtResource("1_uwrxv")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.1316336, 0.99129844, 0, -0.99129844, 0.1316336, 0, 397.0117, 26.435)
 current = true
+fov = 45.0
 
 [node name="Lights" type="Node3D" parent="."]
 
@@ -540,6 +610,34 @@ sky_mode = 1
 [node name="Framework" parent="." instance=ExtResource("2_yqjtg")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.66, 0)
+
+[node name="TopRight" type="Node3D" parent="Framework"]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 128.317, 4.515, -64.446)
+
+[node name="PlaceholderExpansionCard" parent="Framework/TopRight" instance=ExtResource("4_lbhrr")]
+visible = false
+
+[node name="BottomRight" type="Node3D" parent="Framework"]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 128.317, 4.515, -14.381)
+
+[node name="PlaceholderExpansionCard" parent="Framework/BottomRight" instance=ExtResource("4_lbhrr")]
+visible = false
+
+[node name="TopLeft" type="Node3D" parent="Framework"]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -128.331, 4.515, -64.446)
+
+[node name="PlaceholderExpansionCard" parent="Framework/TopLeft" instance=ExtResource("4_lbhrr")]
+visible = false
+
+[node name="BottomLeft" type="Node3D" parent="Framework"]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -128.331, 4.515, -14.381)
+
+[node name="PlaceholderExpansionCard" parent="Framework/BottomLeft" instance=ExtResource("4_lbhrr")]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yqjtg")
@@ -628,34 +726,19 @@ libraries = {
 &"": SubResource("AnimationLibrary_p57ef")
 }
 
-[node name="ExpansionCards" type="Node3D" parent="."]
-
-[node name="TopRight" type="Node3D" parent="ExpansionCards"]
+[node name="ECAnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 128.31747, 23.17505, -64.446304)
-
-[node name="BottomRight" type="Node3D" parent="ExpansionCards"]
-unique_name_in_owner = true
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 128.31747, 23.17505, -14.380867)
-
-[node name="TopLeft" type="Node3D" parent="ExpansionCards"]
-unique_name_in_owner = true
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -128.33115, 23.17505, -64.446304)
-
-[node name="BottomLeft" type="Node3D" parent="ExpansionCards"]
-unique_name_in_owner = true
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -128.331, 23.175, -14.381)
-
-[node name="ECAnimationPlayer" type="AnimationPlayer" parent="ExpansionCards"]
-unique_name_in_owner = true
+root_node = NodePath("../Framework")
 libraries = {
 &"": SubResource("AnimationLibrary_kvuet")
 }
 
+[connection signal="reveal_hud" from="." to="HUD" method="_on_game_reveal_hud"]
 [connection signal="toggle_hud" from="." to="HUD" method="_on_game_toggle_hud"]
 [connection signal="update_hud" from="." to="HUD" method="_on_game_update_hud"]
+[connection signal="animate" from="HUD" to="." method="_on_hud_animate"]
 [connection signal="dispatch_card" from="HUD" to="." method="_on_hud_dispatch_card"]
 [connection signal="remove_card" from="HUD" to="." method="_on_hud_remove_card"]
 [connection signal="animation_finished" from="Box/BoxAnimationPlayer" to="." method="_on_box_animation_player_animation_finished"]
 [connection signal="animation_finished" from="FrameworkAnimationPlayer" to="." method="_on_framework_animation_player_animation_finished"]
-[connection signal="animation_finished" from="ExpansionCards/ECAnimationPlayer" to="." method="_on_ec_animation_player_animation_finished"]
+[connection signal="animation_finished" from="ECAnimationPlayer" to="." method="_on_ec_animation_player_animation_finished"]

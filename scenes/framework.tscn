@@ -958,22 +958,22 @@ visible = false
 [node name="Holes" type="Node3D" parent="."]
 
 [node name="TopLeft" type="MeshInstance3D" parent="Holes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.54948, 4.5387573, -63.82699)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.6424, 4.5387573, -63.82699)
 mesh = SubResource("BoxMesh_vn5en")
 surface_material_override/0 = SubResource("StandardMaterial3D_mf12c")
 
 [node name="BottomLeft" type="MeshInstance3D" parent="Holes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.54948, 4.5387573, -14.394051)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.61747, 4.5387573, -14.394051)
 mesh = SubResource("BoxMesh_vn5en")
 surface_material_override/0 = SubResource("StandardMaterial3D_mf12c")
 
 [node name="TopRight" type="MeshInstance3D" parent="Holes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.56499, 4.5387573, -63.82699)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.73185, 4.5387573, -63.82699)
 mesh = SubResource("BoxMesh_vn5en")
 surface_material_override/0 = SubResource("StandardMaterial3D_mf12c")
 
 [node name="BottomRight" type="MeshInstance3D" parent="Holes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.56499, 4.5387573, -14.394051)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.696014, 4.5387573, -14.394051)
 mesh = SubResource("BoxMesh_vn5en")
 surface_material_override/0 = SubResource("StandardMaterial3D_mf12c")
 

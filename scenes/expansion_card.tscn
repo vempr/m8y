@@ -43,7 +43,7 @@ mesh = SubResource("BoxMesh_71wlv")
 surface_material_override/0 = SubResource("StandardMaterial3D_71wlv")
 
 [node name="Hole" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.5266695)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.629735)
 visible = false
 mesh = SubResource("BoxMesh_4hyq5")
 surface_material_override/0 = SubResource("StandardMaterial3D_hf1db")
