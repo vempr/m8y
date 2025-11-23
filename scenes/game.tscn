@@ -331,7 +331,6 @@ current = true
 [node name="Framework" parent="." instance=ExtResource("2_yqjtg")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.66, 0)
-visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.5021449, 0.8647836, 0, -0.8647836, -0.5021449, 0, 287.91632, 0)

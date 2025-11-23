@@ -1,82 +1,78 @@
 extends Node3D
 
-enum BOX_STATE { OPENING, HOVERING, MOVING, CLOSING }
-enum BOX_SEQUENCE { OPEN, CLOSE }
-var box_state := BOX_STATE.OPENING
-var is_open := false
-var sequence := BOX_SEQUENCE.OPEN
+var animation_in_progress := false
 
 
 func _ready() -> void:
 	%Framework.visible = false
-	%Box.visible = true
+	%Box.visible = false
+	start_sequence()
+
+
+func start_sequence() -> void:
+	if animation_in_progress:
+		return
+	animation_in_progress = true
+	
+	%BoxAnimationPlayer.stop()
+	%FrameworkAnimationPlayer.stop()
 	
 	%BoxAnimationPlayer.play("RESET")
 	%FrameworkAnimationPlayer.play("RESET")
+	await get_tree().create_timer(0.1).timeout
 	
-	demo()
-
-
-func demo() -> void:
-	%Framework.visible = false
-	
+	%Box.visible = true
 	%BoxAnimationPlayer.play("move_backwards")
-	await get_tree().create_timer(2).timeout
-	
+	await %BoxAnimationPlayer.animation_finished
 	%Framework.visible = true
 	
-	open_box()
-	await get_tree().create_timer(5).timeout
-	close_box()
-	await get_tree().create_timer(3).timeout
+	%BoxAnimationPlayer.play("open")
+	await %BoxAnimationPlayer.animation_finished
 	
+	%FrameworkAnimationPlayer.play("hover")
+	await %FrameworkAnimationPlayer.animation_finished
+	
+	%BoxAnimationPlayer.play("move")
+	await %BoxAnimationPlayer.animation_finished
+	
+	%FrameworkAnimationPlayer.play("hover_backwards")
+	await %FrameworkAnimationPlayer.animation_finished
+	end_sequence()
+
+
+func end_sequence() -> void:
+	%FrameworkAnimationPlayer.play("flip")
+	await %FrameworkAnimationPlayer.animation_finished
+	
+	%FrameworkAnimationPlayer.play("hover")
+	await %FrameworkAnimationPlayer.animation_finished
+	
+	%BoxAnimationPlayer.play("move_backwards")
+	await %BoxAnimationPlayer.animation_finished
+	
+	%FrameworkAnimationPlayer.play("hover_backwards")
+	await %FrameworkAnimationPlayer.animation_finished
+	
+	%BoxAnimationPlayer.play("open_backwards")
+	await %BoxAnimationPlayer.animation_finished
+
 	%Framework.visible = false
 	%BoxAnimationPlayer.play("move")
+	await %BoxAnimationPlayer.animation_finished
+	%Box.visible = false
 
-
-func open_box() -> void:
-	sequence = BOX_SEQUENCE.OPEN
-	
-	%BoxAnimationPlayer.play("RESET")
-	%FrameworkAnimationPlayer.play("RESET")
-	%BoxAnimationPlayer.play("open")
-
-
-func close_box() -> void:
-	sequence = BOX_SEQUENCE.CLOSE
-	%FrameworkAnimationPlayer.play("flip")
+	animation_in_progress = false
+	await get_tree().create_timer(1.0).timeout
+	start_sequence()
 
 
 func _process(_delta: float) -> void:
 	pass
 
 
-func _on_box_animation_player_animation_finished(anim_name: StringName) -> void:
-	match anim_name:
-		"open":
-			is_open = true
-			box_state = BOX_STATE.HOVERING
-			%FrameworkAnimationPlayer.play("hover")
-		"move":
-			%FrameworkAnimationPlayer.play("hover_backwards")
-		"move_backwards":
-			%FrameworkAnimationPlayer.play("hover_backwards")
-		"open_backwards":
-			is_open = false
-			box_state = BOX_STATE.OPENING
+func _on_box_animation_player_animation_finished(_anim_name: StringName) -> void:
+	pass
 
 
-func _on_framework_animation_player_animation_finished(anim_name: StringName) -> void:
-	match anim_name:
-		"flip":
-			%FrameworkAnimationPlayer.play("hover")
-		"hover":
-			if sequence == BOX_SEQUENCE.OPEN:
-				%BoxAnimationPlayer.play("move")
-			elif sequence == BOX_SEQUENCE.CLOSE:
-				%BoxAnimationPlayer.play("move_backwards")
-		"hover_backwards":
-			if sequence == BOX_SEQUENCE.OPEN:
-				return
-			elif sequence == BOX_SEQUENCE.CLOSE:
-				%BoxAnimationPlayer.play("open_backwards")
+func _on_framework_animation_player_animation_finished(_anim_name: StringName) -> void:
+	pass
