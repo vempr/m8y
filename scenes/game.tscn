@@ -733,12 +733,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_kvuet")
 }
 
+[connection signal="inform_hud" from="." to="HUD" method="_on_game_inform_hud"]
 [connection signal="reveal_hud" from="." to="HUD" method="_on_game_reveal_hud"]
 [connection signal="toggle_hud" from="." to="HUD" method="_on_game_toggle_hud"]
 [connection signal="update_hud" from="." to="HUD" method="_on_game_update_hud"]
 [connection signal="animate" from="HUD" to="." method="_on_hud_animate"]
 [connection signal="dispatch_card" from="HUD" to="." method="_on_hud_dispatch_card"]
 [connection signal="remove_card" from="HUD" to="." method="_on_hud_remove_card"]
+[connection signal="ship" from="HUD" to="." method="_on_hud_ship"]
 [connection signal="animation_finished" from="Box/BoxAnimationPlayer" to="." method="_on_box_animation_player_animation_finished"]
 [connection signal="animation_finished" from="FrameworkAnimationPlayer" to="." method="_on_framework_animation_player_animation_finished"]
 [connection signal="animation_finished" from="ECAnimationPlayer" to="." method="_on_ec_animation_player_animation_finished"]

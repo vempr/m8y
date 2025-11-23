@@ -3,6 +3,7 @@ extends Node3D
 signal toggle_hud(is_visible: bool)
 signal update_hud
 signal reveal_hud
+signal inform_hud
 
 @onready var ExCDisplayPort := preload("res://scenes/expansion_cards/usb_a_hdmi_dp_expansion_card.tscn")
 @onready var ExCEthernet := preload("res://scenes/expansion_cards/ethernet_expansion_card.tscn")
@@ -19,6 +20,7 @@ const ZOOM_SPEED := 3.0
 
 var animation_in_progress := false
 var start := false
+var end := false
 var cards := {
 	G.SLOT.TOP_LEFT: [],
 	G.SLOT.BOTTOM_LEFT: [],
@@ -28,6 +30,9 @@ var cards := {
 
 
 func _ready() -> void:
+	G.reset()
+	S.reset()
+	
 	%Camera.fov = ZOOMED_OUT_FOV
 	%Framework.visible = false
 	%Box.visible = false
@@ -36,6 +41,17 @@ func _ready() -> void:
 
 
 func start_sequence() -> bool:
+	for child in %TopLeft.get_children():
+		child.visible = false
+	for child in %BottomLeft.get_children():
+		child.visible = false
+	for child in %TopRight.get_children():
+		child.visible = false
+	for child in %BottomRight.get_children():
+		child.visible = false
+	
+	new_request()
+	
 	if animation_in_progress:
 		return false
 	animation_in_progress = true
@@ -69,7 +85,7 @@ func start_sequence() -> bool:
 	return true
 
 
-func end_sequence() -> void:
+func end_sequence() -> bool:
 	%FrameworkAnimationPlayer.play("flip")
 	await %FrameworkAnimationPlayer.animation_finished
 	
@@ -91,15 +107,20 @@ func end_sequence() -> void:
 	%Box.visible = false
 
 	animation_in_progress = false
-	await get_tree().create_timer(1.0).timeout
-	# start_sequence()
+	return true
 
 
 func _process(delta: float) -> void:
 	if start:
 		%Camera.fov = lerp(%Camera.fov, ZOOMED_IN_FOV, ZOOM_SPEED * delta)
-		if %Camera.fov == ZOOMED_IN_FOV:
+		if %Camera.fov <= ZOOMED_IN_FOV + 0.01:
+			%Camera.fov = ZOOMED_IN_FOV
 			start = false
+	if end:
+		%Camera.fov = lerp(%Camera.fov, ZOOMED_OUT_FOV, ZOOM_SPEED * delta)
+		if %Camera.fov <= ZOOMED_OUT_FOV + 0.01:
+			%Camera.fov = ZOOMED_OUT_FOV
+			end = false
 
 
 func _on_box_animation_player_animation_finished(_anim_name: StringName) -> void:
@@ -229,3 +250,42 @@ func _on_hud_animate(from: int, to: int) -> void:
 		%FrameworkAnimationPlayer.play("flip_right_reverse")
 	elif from == 0 && to == -1:
 		%FrameworkAnimationPlayer.play("flip_left")
+
+
+func _on_hud_ship() -> void:
+	review()
+	
+	end = true
+	G.level += 1
+	
+	await end_sequence()
+	if G.level <= 10:
+		await start_sequence()
+		toggle_hud.emit(true)
+	else:
+		await Fade.fade_out().finished
+		get_tree().change_scene_to_file("res://scenes/end.tscn")
+		Fade.fade_in()
+
+
+func new_request() -> void:
+	S.reset()
+	var ri := randi_range(0, G.messages.size() - 1)
+	G.request = G.messages[ri]
+	G.messages.remove_at(ri)
+	inform_hud.emit()
+
+
+func review() -> void:
+	G.review[G.level]["message"] = G.request
+	var remaining_correct_cards = G.request["correct"].duplicate()
+	
+	for pos in S.positions:
+		var card = S.positions[pos]
+		var card_i = remaining_correct_cards.find(card)
+		
+		if card_i != -1:
+			remaining_correct_cards.remove_at(card_i)
+			G.review[G.level]["correct"].append(card)
+		else:
+			G.review[G.level]["wrong"].append(card)
