@@ -15,3 +15,14 @@ var card_names := {
 	CARD.SD: "SDExpansionCard",
 	CARD.STORAGE: "StorageExpansionCard",
 }
+
+var cns := {
+	CARD.USB_C: "USB-C",
+	CARD.USB_A: "USB-A",
+	CARD.HDMI: "HDMI",
+	CARD.ETHERNET: "Ethernet",
+	CARD.DISPLAY_PORT: "DP",
+	CARD.MICRO_SD: "Micro SD",
+	CARD.SD: "SD",
+	CARD.STORAGE: "Storage",
+}

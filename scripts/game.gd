@@ -1,6 +1,7 @@
 extends Node3D
 
 signal toggle_hud(is_visible: bool)
+signal update_hud
 
 @onready var ExCDisplayPort := preload("res://scenes/expansion_cards/usb_a_hdmi_dp_expansion_card.tscn")
 @onready var ExCEthernet := preload("res://scenes/expansion_cards/ethernet_expansion_card.tscn")
@@ -108,7 +109,7 @@ func _on_framework_animation_player_animation_finished(_anim_name: StringName) -
 
 
 func _on_hud_dispatch_card(card: int, pos: int) -> void:
-	print(card, " + ", pos)
+	print(card, "@", pos)
 	var expc
 	
 	match card:
@@ -132,6 +133,7 @@ func _on_hud_dispatch_card(card: int, pos: int) -> void:
 	var cn: String = G.card_names[card]
 	match pos:
 		G.SLOT.TOP_LEFT:
+			S.positions[G.SLOT.TOP_LEFT] = card
 			%ECAnimationPlayer.play("top_left_in")
 			
 			if cn not in cards[G.SLOT.TOP_LEFT]:
@@ -145,6 +147,7 @@ func _on_hud_dispatch_card(card: int, pos: int) -> void:
 				%TopLeft.get_node(cn).visible = true
 				
 		G.SLOT.BOTTOM_LEFT:
+			S.positions[G.SLOT.BOTTOM_LEFT] = card
 			%ECAnimationPlayer.play("bottom_left_in")
 			
 			if cn not in cards[G.SLOT.BOTTOM_LEFT]:
@@ -158,6 +161,7 @@ func _on_hud_dispatch_card(card: int, pos: int) -> void:
 				%BottomLeft.get_node(cn).visible = true
 				
 		G.SLOT.TOP_RIGHT:
+			S.positions[G.SLOT.TOP_RIGHT] = card
 			%ECAnimationPlayer.play("top_right_in")
 			
 			if cn not in cards[G.SLOT.TOP_RIGHT]:
@@ -171,6 +175,7 @@ func _on_hud_dispatch_card(card: int, pos: int) -> void:
 				%TopRight.get_node(cn).visible = true
 				
 		G.SLOT.BOTTOM_RIGHT:
+			S.positions[G.SLOT.BOTTOM_RIGHT] = card
 			%ECAnimationPlayer.play("bottom_right_in")
 			
 			if cn not in cards[G.SLOT.BOTTOM_RIGHT]:
@@ -182,4 +187,26 @@ func _on_hud_dispatch_card(card: int, pos: int) -> void:
 				for child in %BottomRight.get_children():
 					child.visible = false
 				%BottomRight.get_node(cn).visible = true
-			
+
+
+func _on_ec_animation_player_animation_finished(_anim_name: StringName) -> void:
+	update_hud.emit()
+
+
+func _on_hud_remove_card(pos: int) -> void:
+	print("-", pos)
+	
+	match pos:
+		G.SLOT.TOP_LEFT:
+			S.positions[G.SLOT.TOP_LEFT] = null
+			%ECAnimationPlayer.play("top_left_out")
+		G.SLOT.BOTTOM_LEFT:
+			S.positions[G.SLOT.BOTTOM_LEFT] = null
+			%ECAnimationPlayer.play("bottom_left_out")
+		G.SLOT.TOP_RIGHT:
+			S.positions[G.SLOT.TOP_RIGHT] = null
+			%ECAnimationPlayer.play("top_right_out")
+		G.SLOT.BOTTOM_RIGHT:
+			S.positions[G.SLOT.BOTTOM_RIGHT] = null
+			%ECAnimationPlayer.play("bottom_right_out")
+	

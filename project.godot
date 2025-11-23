@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 G="*res://scripts/G.gd"
+S="*res://scripts/S.gd"
 
 [display]
 

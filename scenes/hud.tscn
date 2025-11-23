@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnd3h5kpl3a2n"]
+[gd_scene load_steps=21 format=3 uid="uid://cnd3h5kpl3a2n"]
 
 [ext_resource type="Script" uid="uid://dsxgkfc2dobjj" path="res://scripts/hud.gd" id="1_0m4u7"]
 [ext_resource type="FontFile" uid="uid://wtc0npxw7fds" path="res://assets/fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" id="1_ahhtf"]
@@ -14,6 +14,9 @@
 [ext_resource type="StyleBox" uid="uid://dukcqg0yospjy" path="res://styles/round_btn_normal.tres" id="12_5n1hp"]
 [ext_resource type="FontFile" uid="uid://do0lgvl4uhcov" path="res://assets/fonts/Open_Sans/static/OpenSans-Bold.ttf" id="12_eld54"]
 [ext_resource type="StyleBox" uid="uid://rs8hh0qmjtnx" path="res://styles/round_btn_pressed.tres" id="13_eld54"]
+[ext_resource type="StyleBox" uid="uid://drvi5mk4mhoma" path="res://styles/round_rmv_normal.tres" id="15_uxdf7"]
+[ext_resource type="StyleBox" uid="uid://bedavrh8km7qu" path="res://styles/round_rmv_pressed.tres" id="16_5357l"]
+[ext_resource type="StyleBox" uid="uid://cnkb1ovgydcs7" path="res://styles/round_rmv_hover.tres" id="17_iypfu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3swnk"]
 bg_color = Color(0.29411766, 0.41960785, 1, 0.92156863)
@@ -356,6 +359,160 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5n1hp")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eld54")
 text = "4"
 
+[node name="Labels" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="TopLeftLabel" type="Label" parent="Labels"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 0
+offset_left = 467.0
+offset_top = 277.0
+offset_right = 753.0
+offset_bottom = 329.0
+theme_override_colors/font_color = Color(0.4034024, 0.5353772, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -6
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("3_0m4u7")
+theme_override_font_sizes/font_size = 40
+text = "USB-C"
+vertical_alignment = 1
+
+[node name="BottomLeftLabel" type="Label" parent="Labels"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 0
+offset_left = 450.0
+offset_top = 648.0
+offset_right = 760.0
+offset_bottom = 700.0
+theme_override_colors/font_color = Color(0.4034024, 0.5353772, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -6
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("3_0m4u7")
+theme_override_font_sizes/font_size = 40
+text = "DisplayPort"
+vertical_alignment = 1
+
+[node name="TopRightLabel" type="Label" parent="Labels"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 0
+offset_left = 1160.0
+offset_top = 277.0
+offset_right = 1446.0
+offset_bottom = 329.0
+theme_override_colors/font_color = Color(0.4034024, 0.5353772, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -6
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("3_0m4u7")
+theme_override_font_sizes/font_size = 40
+text = "USB-A"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BottomRightLabel" type="Label" parent="Labels"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 0
+offset_left = 1160.0
+offset_top = 648.0
+offset_right = 1470.0
+offset_bottom = 700.0
+theme_override_colors/font_color = Color(0.4034024, 0.5353772, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -6
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("3_0m4u7")
+theme_override_font_sizes/font_size = 40
+text = "Ethernet"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Remove" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="TopLeftRemove" type="Button" parent="Remove"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 489.0
+offset_top = 370.0
+offset_right = 589.0
+offset_bottom = 470.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("12_eld54")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("15_uxdf7")
+theme_override_styles/pressed = ExtResource("16_5357l")
+theme_override_styles/hover = ExtResource("17_iypfu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5n1hp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eld54")
+text = "X"
+
+[node name="BottomLeftRemove" type="Button" parent="Remove"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 486.0
+offset_top = 549.0
+offset_right = 586.0
+offset_bottom = 649.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("12_eld54")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("15_uxdf7")
+theme_override_styles/pressed = ExtResource("16_5357l")
+theme_override_styles/hover = ExtResource("17_iypfu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5n1hp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eld54")
+text = "X"
+
+[node name="TopRightRemove" type="Button" parent="Remove"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1383.0
+offset_top = 378.0
+offset_right = 1483.0
+offset_bottom = 478.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("12_eld54")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("15_uxdf7")
+theme_override_styles/pressed = ExtResource("16_5357l")
+theme_override_styles/hover = ExtResource("17_iypfu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5n1hp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eld54")
+text = "X"
+
+[node name="BottomRightRemove" type="Button" parent="Remove"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1389.0
+offset_top = 545.0
+offset_right = 1489.0
+offset_bottom = 645.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("12_eld54")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("15_uxdf7")
+theme_override_styles/pressed = ExtResource("16_5357l")
+theme_override_styles/hover = ExtResource("17_iypfu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5n1hp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eld54")
+text = "X"
+
 [connection signal="dispatch" from="ExpansionCards/EC/DPExpansionCardBtn" to="." method="_on_expansion_card_btn_dispatch"]
 [connection signal="dispatch" from="ExpansionCards/EC/EthernetExpansionCardBtn" to="." method="_on_expansion_card_btn_dispatch"]
 [connection signal="dispatch" from="ExpansionCards/EC/HDMIExpansionCardBtn" to="." method="_on_expansion_card_btn_dispatch"]
@@ -368,3 +525,7 @@ text = "4"
 [connection signal="pressed" from="Choices/BottomLeftButton" to="." method="_on_bottom_left_button_pressed"]
 [connection signal="pressed" from="Choices/TopRightButton" to="." method="_on_top_right_button_pressed"]
 [connection signal="pressed" from="Choices/BottomRightButton" to="." method="_on_bottom_right_button_pressed"]
+[connection signal="pressed" from="Remove/TopLeftRemove" to="." method="_on_top_left_remove_pressed"]
+[connection signal="pressed" from="Remove/BottomLeftRemove" to="." method="_on_bottom_left_remove_pressed"]
+[connection signal="pressed" from="Remove/TopRightRemove" to="." method="_on_top_right_remove_pressed"]
+[connection signal="pressed" from="Remove/BottomRightRemove" to="." method="_on_bottom_right_remove_pressed"]
