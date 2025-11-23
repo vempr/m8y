@@ -18,10 +18,10 @@ Now have fun inserting those cards into the slots!
 
 ## Gallery
 
-![]("./readme/week-12-4.jpg")
-![]("./readme/week-12-1.jpg")
-![]("./readme/week-12-2.jpg")
-![]("./readme/week-12-3.jpg")
+![](./readme/week-12-4.jpg)
+![](./readme/week-12-1.jpg)
+![](./readme/week-12-2.jpg)
+![](./readme/week-12-3.jpg)
 
 ## Assets
 - Framework logo and expansion card images from https://www.frame.work
