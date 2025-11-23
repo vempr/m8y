@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyfv8x2d1g8k5"]
+
+[ext_resource type="PackedScene" uid="uid://cf06bv86w2fvv" path="res://scenes/expansion_card.tscn" id="1_mveka"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ywgkf"]
+size = Vector3(34.745, 2.78, 14.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rihvj"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="SDExpansionCard" instance=ExtResource("1_mveka")]
+card = 6
+
+[node name="SDHole" type="MeshInstance3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0826721, -12.717)
+mesh = SubResource("BoxMesh_ywgkf")
+surface_material_override/0 = SubResource("StandardMaterial3D_rihvj")

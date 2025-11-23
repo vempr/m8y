@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://boa48igre5fly"]
+
+[ext_resource type="PackedScene" uid="uid://cf06bv86w2fvv" path="res://scenes/expansion_card.tscn" id="1_uk0t6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u6vgp"]
+size = Vector3(17.705, 5.435, 14.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hf1db"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="UsbA_HDMI_DP" instance=ExtResource("1_uk0t6")]
+card = 1
+
+[node name="USBAHole" type="MeshInstance3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.717)
+mesh = SubResource("BoxMesh_u6vgp")
+surface_material_override/0 = SubResource("StandardMaterial3D_hf1db")

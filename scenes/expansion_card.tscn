@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://cf06bv86w2fvv"]
+
+[ext_resource type="Script" uid="uid://bvrms26il8h5x" path="res://scripts/expansion_card.gd" id="1_xvx81"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vn5en"]
+size = Vector3(40, 6.575, 40.02)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mf12c"]
+albedo_color = Color(0.90359825, 0.90359825, 0.9035982, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xvx81"]
+size = Vector3(40, 6.575, 8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hyq5"]
+albedo_color = Color(0.56362605, 0.5636254, 0.56362504, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_71wlv"]
+size = Vector3(7.555, 3.095, 13.06)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71wlv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4hyq5"]
+size = Vector3(7.555, 3.095, 13.06)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hf1db"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="ExpansionCard" type="Node3D"]
+script = ExtResource("1_xvx81")
+
+[node name="Base" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_vn5en")
+surface_material_override/0 = SubResource("StandardMaterial3D_mf12c")
+
+[node name="Line" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.099594116, 16.07101)
+mesh = SubResource("BoxMesh_xvx81")
+surface_material_override/0 = SubResource("StandardMaterial3D_4hyq5")
+
+[node name="USB-C" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.104092)
+mesh = SubResource("BoxMesh_71wlv")
+surface_material_override/0 = SubResource("StandardMaterial3D_71wlv")
+
+[node name="Hole" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.5266695)
+visible = false
+mesh = SubResource("BoxMesh_4hyq5")
+surface_material_override/0 = SubResource("StandardMaterial3D_hf1db")

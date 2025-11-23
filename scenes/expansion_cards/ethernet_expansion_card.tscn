@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjfll70786ap0"]
+
+[ext_resource type="PackedScene" uid="uid://cf06bv86w2fvv" path="res://scenes/expansion_card.tscn" id="1_kxmnc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h6wkt"]
+size = Vector3(40, 12.985, 22.015)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mf12c"]
+albedo_color = Color(0.90359825, 0.90359825, 0.9035982, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vfi4l"]
+size = Vector3(22.99, 10.9, 14.605)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2e775"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="EthernetExpansionCard" instance=ExtResource("1_kxmnc")]
+card = 3
+
+[node name="EthernetExtension" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.2117157, -30.80002)
+mesh = SubResource("BoxMesh_h6wkt")
+surface_material_override/0 = SubResource("StandardMaterial3D_mf12c")
+
+[node name="EthernetHole" type="MeshInstance3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.294388, -34.508575)
+mesh = SubResource("BoxMesh_vfi4l")
+skeleton = NodePath("../EthernetExtension")
+surface_material_override/0 = SubResource("StandardMaterial3D_2e775")

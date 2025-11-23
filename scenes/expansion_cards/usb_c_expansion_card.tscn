@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgmolhfm31e0p"]
+
+[ext_resource type="PackedScene" uid="uid://cf06bv86w2fvv" path="res://scenes/expansion_card.tscn" id="1_io606"]
+
+[node name="UsbCExpansionCard" instance=ExtResource("1_io606")]
+
+[node name="Hole" parent="." index="3"]
+visible = true
