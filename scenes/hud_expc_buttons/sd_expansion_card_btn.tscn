@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://yvd4ud0485fk"]
+
+[ext_resource type="PackedScene" uid="uid://d2n7gmbcvmolc" path="res://scenes/expansion_card_btn.tscn" id="1_pp0bs"]
+[ext_resource type="Texture2D" uid="uid://bch1p66k0slbb" path="res://assets/framework/expansion_cards/sd.jpeg" id="2_umuy3"]
+
+[node name="SDExpansionCardBtn" instance=ExtResource("1_pp0bs")]
+card = 6
+
+[node name="CardLabel" parent="." index="1"]
+text = "SD"
+
+[node name="C" parent="ColorRect" index="0"]
+position = Vector2(49.999996, 50)
+texture = ExtResource("2_umuy3")

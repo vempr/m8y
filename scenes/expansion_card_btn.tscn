@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2n7gmbcvmolc"]
+
+[ext_resource type="FontFile" uid="uid://do0lgvl4uhcov" path="res://assets/fonts/Open_Sans/static/OpenSans-Bold.ttf" id="1_fy25u"]
+[ext_resource type="Script" uid="uid://c15qciuwt1f65" path="res://scripts/expansion_card_btn.gd" id="1_mcund"]
+[ext_resource type="Texture2D" uid="uid://bemqnx2nsx8cw" path="res://assets/framework/expansion_cards/c.jpeg" id="2_fy25u"]
+
+[node name="ExpansionCardBtn" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 141.0
+script = ExtResource("1_mcund")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CardLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 99.0
+offset_bottom = 55.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.42745098)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 11
+theme_override_fonts/font = ExtResource("1_fy25u")
+theme_override_font_sizes/font_size = 30
+text = "USB-C"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.19607843)
+
+[node name="C" type="Sprite2D" parent="ColorRect"]
+position = Vector2(49.999996, 49)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_fy25u")
+region_enabled = true
+region_rect = Rect2(260.821, 466.477, 800, 800)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

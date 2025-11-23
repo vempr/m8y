@@ -1,0 +1,189 @@
+[gd_scene load_steps=11 format=3 uid="uid://cnd3h5kpl3a2n"]
+
+[ext_resource type="FontFile" uid="uid://wtc0npxw7fds" path="res://assets/fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" id="1_ahhtf"]
+[ext_resource type="PackedScene" uid="uid://bm8rg7sdblqcf" path="res://scenes/hud_expc_buttons/dp_expansion_card_btn.tscn" id="2_0i1j5"]
+[ext_resource type="FontFile" uid="uid://dxfqqgvfvsyjb" path="res://assets/fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" id="2_mphia"]
+[ext_resource type="PackedScene" uid="uid://bynbvcriyg8dg" path="res://scenes/hud_expc_buttons/ethernet_expansion_card_btn.tscn" id="3_mphia"]
+[ext_resource type="PackedScene" uid="uid://f7i87msmnh4o" path="res://scenes/hud_expc_buttons/hdmi_expansion_card_btn.tscn" id="4_0m4u7"]
+[ext_resource type="PackedScene" uid="uid://di0idvif1jslq" path="res://scenes/hud_expc_buttons/micro_sd_expansion_card_btn.tscn" id="5_apjy4"]
+[ext_resource type="PackedScene" uid="uid://yvd4ud0485fk" path="res://scenes/hud_expc_buttons/sd_expansion_card_btn.tscn" id="6_5n1hp"]
+[ext_resource type="PackedScene" uid="uid://dcwu5pf4bhilg" path="res://scenes/hud_expc_buttons/storage_expansion_card_btn.tscn" id="7_eld54"]
+[ext_resource type="PackedScene" uid="uid://dj85730df4fu1" path="res://scenes/hud_expc_buttons/usb_a_expansion_card_btn.tscn" id="8_3swnk"]
+[ext_resource type="PackedScene" uid="uid://drgccivlp1f8c" path="res://scenes/hud_expc_buttons/usb_c_expansion_card_btn.tscn" id="9_qkknv"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Title" type="Label" parent="."]
+offset_left = 2.0
+offset_top = 1020.0
+offset_right = 120.0
+offset_bottom = 1093.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 11
+theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_font_sizes/font_size = 56
+text = "M8Y"
+
+[node name="ColorRect" type="ColorRect" parent="Title"]
+z_index = -1
+layout_mode = 0
+offset_left = -5.0
+offset_top = 14.0
+offset_right = 108.0
+offset_bottom = 88.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Title"]
+z_index = -1
+layout_mode = 0
+offset_left = 97.0
+offset_top = 14.0
+offset_right = 121.0
+offset_bottom = 17.0
+color = Color(0, 0, 0, 1)
+
+[node name="Level" type="RichTextLabel" parent="."]
+offset_left = -79.0
+offset_top = -2.0
+offset_right = 402.0
+offset_bottom = 95.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 56
+theme_override_fonts/normal_font = ExtResource("1_ahhtf")
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "LEVEL // [color=orange]20[/color] "
+scroll_active = false
+horizontal_alignment = 2
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Level"]
+z_index = -1
+layout_mode = 0
+offset_left = -19.0
+offset_top = -6.0
+offset_right = 385.0
+offset_bottom = 84.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Level"]
+z_index = -1
+layout_mode = 0
+offset_left = 279.027
+offset_top = -8.322
+offset_right = 580.454
+offset_bottom = 96.39705
+rotation = -0.5061524
+color = Color(0, 0, 0, 1)
+
+[node name="ExpansionCards" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 38.0
+offset_top = 123.0
+offset_right = 282.0
+offset_bottom = 744.0
+
+[node name="Title" type="Label" parent="ExpansionCards"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 1.0
+offset_right = 234.0
+offset_bottom = 128.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -30
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("2_mphia")
+theme_override_font_sizes/font_size = 45
+text = "Expansion
+CARDS :-D"
+
+[node name="EC" type="Control" parent="ExpansionCards"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = -216.5
+offset_right = 107.0
+offset_bottom = 368.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DPExpansionCardBtn" parent="ExpansionCards/EC" instance=ExtResource("2_0i1j5")]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 445.0
+offset_right = 214.0
+offset_bottom = 586.0
+
+[node name="EthernetExpansionCardBtn" parent="ExpansionCards/EC" instance=ExtResource("3_mphia")]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 445.0
+offset_right = 101.0
+offset_bottom = 586.0
+
+[node name="HDMIExpansionCardBtn" parent="ExpansionCards/EC" instance=ExtResource("4_0m4u7")]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 302.0
+offset_right = 214.0
+offset_bottom = 443.0
+
+[node name="MicroSDExpansionCardBtn" parent="ExpansionCards/EC" instance=ExtResource("5_apjy4")]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 302.0
+offset_right = 102.0
+offset_bottom = 443.0
+
+[node name="SDExpansionCardBtn" parent="ExpansionCards/EC" instance=ExtResource("6_5n1hp")]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 149.0
+offset_right = 214.0
+offset_bottom = 290.0
+
+[node name="StorageExpansionCardBtn" parent="ExpansionCards/EC" instance=ExtResource("7_eld54")]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 149.0
+offset_right = 101.0
+offset_bottom = 290.0
+
+[node name="UsbAExpansionCardBtn" parent="ExpansionCards/EC" instance=ExtResource("8_3swnk")]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 1.0
+offset_right = 215.0
+offset_bottom = 142.0
+
+[node name="UsbCExpansionCardBtn" parent="ExpansionCards/EC" instance=ExtResource("9_qkknv")]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 101.0
+offset_bottom = 142.0
+
+[node name="ColorRect" type="ColorRect" parent="ExpansionCards"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -310.5
+offset_right = 122.0
+offset_bottom = 404.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.13333334, 0, 0.23529412)
+metadata/_edit_lock_ = true

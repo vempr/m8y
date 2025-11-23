@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://ck7sr62mceqpt"]
+[gd_scene load_steps=23 format=3 uid="uid://ck7sr62mceqpt"]
 
 [ext_resource type="Script" uid="uid://c2tysoh0727ud" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dmi0snx860ixc" path="res://scenes/framework.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://cnd3h5kpl3a2n" path="res://scenes/hud.tscn" id="3_lnu2h"]
 
 [sub_resource type="Environment" id="Environment_yqjtg"]
 background_energy_multiplier = 3.0
@@ -324,7 +325,8 @@ _data = {
 [node name="Game" type="Node3D"]
 script = ExtResource("1_uwrxv")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera" type="Camera3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.1316336, 0.99129844, 0, -0.99129844, 0.1316336, 0, 397.0117, 26.435)
 current = true
 
@@ -348,6 +350,7 @@ environment = SubResource("Environment_yqjtg")
 
 [node name="Box" type="Node3D" parent="."]
 unique_name_in_owner = true
+visible = false
 
 [node name="Bottom" type="MeshInstance3D" parent="Box"]
 mesh = SubResource("BoxMesh_yqjtg")
@@ -428,6 +431,8 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_p57ef")
 }
+
+[node name="HUD" parent="." instance=ExtResource("3_lnu2h")]
 
 [connection signal="animation_finished" from="Box/BoxAnimationPlayer" to="." method="_on_box_animation_player_animation_finished"]
 [connection signal="animation_finished" from="FrameworkAnimationPlayer" to="." method="_on_framework_animation_player_animation_finished"]

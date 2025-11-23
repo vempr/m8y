@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://drgccivlp1f8c"]
+
+[ext_resource type="PackedScene" uid="uid://d2n7gmbcvmolc" path="res://scenes/expansion_card_btn.tscn" id="1_oerqq"]
+
+[node name="UsbCExpansionCardBtn" instance=ExtResource("1_oerqq")]

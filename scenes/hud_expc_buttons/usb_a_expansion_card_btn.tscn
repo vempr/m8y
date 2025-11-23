@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj85730df4fu1"]
+
+[ext_resource type="PackedScene" uid="uid://d2n7gmbcvmolc" path="res://scenes/expansion_card_btn.tscn" id="1_54vqw"]
+[ext_resource type="Texture2D" uid="uid://6gbxblb5mond" path="res://assets/framework/expansion_cards/a.png" id="2_eldxw"]
+
+[node name="UsbAExpansionCardBtn" instance=ExtResource("1_54vqw")]
+card = 1
+
+[node name="CardLabel" parent="." index="1"]
+text = "USB-A"
+
+[node name="C" parent="ColorRect" index="0"]
+position = Vector2(45, 57)
+texture = ExtResource("2_eldxw")
+region_rect = Rect2(153.68774, 396.77997, 907.1333, 869.6971)

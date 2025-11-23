@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bynbvcriyg8dg"]
+
+[ext_resource type="PackedScene" uid="uid://d2n7gmbcvmolc" path="res://scenes/expansion_card_btn.tscn" id="1_wuowq"]
+[ext_resource type="Texture2D" uid="uid://bgcuqb3bfodbw" path="res://assets/framework/expansion_cards/ethernet.png" id="2_3ieec"]
+
+[node name="EthernetExpansionCardBtn" instance=ExtResource("1_wuowq")]
+card = 3
+
+[node name="CardLabel" parent="." index="1"]
+offset_top = 9.0
+theme_override_font_sizes/font_size = 22
+text = "Ethernet"
+
+[node name="C" parent="ColorRect" index="0"]
+position = Vector2(49.999996, 59)
+texture = ExtResource("2_3ieec")

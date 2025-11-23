@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cf06bv86w2fvv" path="res://scenes/expansion_card.tscn" id="1_gdk2y"]
 [ext_resource type="PackedScene" uid="uid://cjfll70786ap0" path="res://scenes/expansion_cards/ethernet_expansion_card.tscn" id="2_goprx"]
-[ext_resource type="Texture2D" uid="uid://ncqeyrp3t8m6" path="res://assets/Framework_Computer_logo.svg" id="3_3r8cd"]
+[ext_resource type="Texture2D" uid="uid://ncqeyrp3t8m6" path="res://assets/framework/Framework_Computer_logo.svg" id="3_3r8cd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_44hn4"]
 size = Vector3(260.805, 10, 10)

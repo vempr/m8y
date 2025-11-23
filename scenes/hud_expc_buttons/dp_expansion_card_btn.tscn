@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm8rg7sdblqcf"]
+
+[ext_resource type="PackedScene" uid="uid://d2n7gmbcvmolc" path="res://scenes/expansion_card_btn.tscn" id="1_mi84j"]
+[ext_resource type="Texture2D" uid="uid://duikjslcfsxo2" path="res://assets/framework/expansion_cards/displayport.png" id="2_nf2hf"]
+
+[node name="DPExpansionCardBtn" instance=ExtResource("1_mi84j")]
+card = 4
+
+[node name="CardLabel" parent="." index="1"]
+offset_left = -4.0
+offset_top = 10.0
+offset_right = 101.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 18
+text = "DisplayPort"
+
+[node name="C" parent="ColorRect" index="0"]
+position = Vector2(49.999996, 58)
+texture = ExtResource("2_nf2hf")
